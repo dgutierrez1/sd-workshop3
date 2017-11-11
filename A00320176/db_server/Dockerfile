@@ -14,5 +14,4 @@ RUN ./configure_mysql.sh
 
 EXPOSE 3306
 
-CMD /etc/init.d/mysql start &
- 
+CMD  /etc/init.d/mysql start && tail -f /var/log/mysql/error.log

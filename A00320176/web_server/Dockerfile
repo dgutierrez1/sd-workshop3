@@ -3,7 +3,9 @@
  RUN apt-get update && apt-get install apache2 -y
  RUN apt-get install php libapache2-mod-php php-mcrypt php-mysql -y
  RUN apt-get install ssh -y
- ADD files/index.php /var/www/html/index.php
+ #ADD files/apache2.conf /etc/apache2/apache2.conf
+ ADD ./files/index.php /var/www/html/index.php
  EXPOSE 80
+ EXPOSE 8080
 
  CMD service ssh start && service apache2 start && tail -f /var/log/apache2/access.log
