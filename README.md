@@ -76,5 +76,5 @@ services:
  ```
  Dado que en mi equipo docker no estaba funcionando use Docker en una maquina virtual. Para probar el funcionamiento use `curl` para hacer las mismas peticiones que haria el navegador.
  
- 
+ <img src="taller3.jpg" >
  
