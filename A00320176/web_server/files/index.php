@@ -1,33 +1,16 @@
 <?php
  
- $link = mysql_connect(‘db_dist’, ‘admin’, ‘password’);
-  
- if (!$link) {
-  die(‘Not connected: ‘ . mysql_error());
- }
+ $con = new PDO('mysql:host=25.8.240.42;dbname=db_dist;charset=utf8mb4', 'admin', 'password');
+if (!$con)
+  {
+  die('Could not connect');
+  }
  
- echo ‘Connected with mysql_connect<br />’;
- mysql_close($link);
  
- $mysqli = new mysqli(‘db_dist’, ‘admin’, ‘password’, ‘db_test’);
- 
- if ($mysqli->connect_error) {
-  die(‘Connect Error (‘ . $mysqli->connect_errno . ‘) ‘
- . $mysqli->connect_error);
- }
-
- if (mysqli_connect_error()) {
-  die(‘Connect Error (‘ . mysqli_connect_errno() . ‘) ‘
- . mysqli_connect_error());
- }
- 
- echo ‘Success with mysqli connection at … ‘ . $mysqli->host_info . “\n”;
+ echo ‘Connected<br />’;
 
  foreach($con->query('SELECT * FROM materia') as $row) {
     echo $row['nombre'].' '.$row['profesor'];
  }
-
-
- $mysqli->close();
 
  ?>
